@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <title>Hot Anúncios</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style type="text/css">
+        pre {
+            font-size: 1.4em;
+        }
+    </style>
+</head>
+<body ng-controller="appController as appCtrl">
+    <div class="container">
+        <div class="header clearfix">
+            <h3 class="text-muted">Hot Anúncios</h3>
+        </div>
+
+    <div class="jumbotron">
+        <div  ng-repeat="r in appCtrl.message" class="alert alert-danger" role="alert">
+            {{ r.message }}
+        </div>
+        <form ng-show="appCtrl.isEmpty()">
+            <div class="form-group">
+                <label for="txtWarName">Nome de Guerra</label>
+                <input type="text" name="txtWarName" class="form-control" ng-model="appCtrl.warName" placeholder="Nome de Guerra">
+            </div>
+            <div class="form-group">
+                <label for="txtTelefone">Telefone</label>
+                <input type="phone" name="txtTelefone" class="form-control" ng-model="appCtrl.phone" placeholder="Telefone" >
+            </div>
+            <div class="form-group">
+                <label for="txtAge">Idade</label>
+                <input type="number" name="txtAge" class="form-control" ng-model="appCtrl.age" placeholder="Idade">
+            </div>
+            <div class="form-group">
+                <label for="cbeHasAcademic">Universitária ?</label>
+                <select class="form-control" name="cbeHasAcademic" ng-options="o.value for o in appCtrl.cbeHasAcademic" ng-model="appCtrl.hasAcademic">
+            </select>
+            </div>
+            <div class="form-group">
+                <label for="cbeHasPlace">Tem Local ?</label>
+                <select class="form-control" name="cbeHasPlace" ng-options="o.value for o in appCtrl.cbeHasPlace" ng-model="appCtrl.hasPlace">
+                </select>
+            </div>
+            <button class="btn btn-primary" ng-click="appCtrl.btnGenerate()">Gerar</button>
+        </form>
+        <pre ng-show="!appCtrl.isEmpty()" ng-bind="appCtrl.ad"></pre>
+        <button ng-show="!appCtrl.isEmpty()" class="btn btn-primary" ng-click="appCtrl.btnRestart()">Gerar Novo</button>
+    </div>
+
+    
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
