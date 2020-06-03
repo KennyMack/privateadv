@@ -1,4 +1,4 @@
 # privateadv
 privateadv
 
-[https://privateadv.herokuapp.com](Link)
+[Link](https://privateadv.herokuapp.com)
